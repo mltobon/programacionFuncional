@@ -4,7 +4,7 @@ import interfaces.Validacion;
 
 import java.util.Random;
 
-public class Pares implements Validacion {
+public class Pares implements Validacion<Integer> {
     @Override
     public boolean test(Integer valor) {
         return valor%2==0?true:false;

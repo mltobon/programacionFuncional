@@ -6,6 +6,7 @@ import interfaces.Validacion;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+import java.util.Random;
 
 public class Main {
 
@@ -16,8 +17,16 @@ public class Main {
         List<Integer> imparesA = imPares(numeros);
         System.out.println("Los numeros pares son " + imparesA);
 
-        List<Integer> testIntefaz = CollectionUtils.transformar(numeros, valor -> valor%2==0?true:false);
+        List<String> testIntefaz = CollectionUtils.transformar(numeros, valor -> valor%2==0?true:false);
         System.out.println("Los numeros pares son " + testIntefaz);
+
+        List<Double> listNew = CollectionUtils.aplicar(numeros,valor -> Double.valueOf(valor/10));
+        System.out.println("valores lista con uso de funcion apply "+listNew);
+
+        List<Integer> createList = CollectionUtils.llenarValores(() ->new Random().nextInt(10),20);
+        System.out.println("valores generados "+createList);
+
+        createList.stream().forEach(System.out::print);
     }
 
     public static List<Integer> pares(List<Integer> numbers) {
